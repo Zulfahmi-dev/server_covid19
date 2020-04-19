@@ -4,6 +4,7 @@ const express = require("express");
 const cors = require("cors");
 const router = require("./routes");
 
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 const app = express();
 
