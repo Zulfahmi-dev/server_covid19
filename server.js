@@ -15,16 +15,6 @@ app.use(express.urlencoded({extended:false}))
 
 router(app);
 
-app.get('/', async (req, res) => {
-    try {
-        const data = await db.query('Select * from tbl_identitas');
-
-        res.send(data)    
-    } catch (error) {
-        res.send(error)
-    }
-    
-});
 // production
 app.listen(PORT, () => {
     console.log(`server running on port ${PORT}`)

@@ -9,54 +9,69 @@ class ScreeningController{
         this.deleteIdentitas = this.deleteIdentitas.bind(this);
     }
     async getIdentitas(req, res){
-        const key = req.query.id;
-        const data = await this.screeningModel.getIdentitas(key);
-        
-        if (data.length<1) {
-            return res.status(500).send({
-                code:500,
-                status:'failed'
-            })
-        }
+        try {    
+            const key = req.query.id;
+            const data = await this.screeningModel.getIdentitas(key);
+            
+            if (data.length<1) {
+                return res.status(500).send({
+                    code:500,
+                    status:'failed'
+                })
+            }
 
-        res.status(200).send({
-            code:200,
-            status:'success',
-            data:data[0]
-        })
+            res.status(200).send({
+                code:200,
+                status:'success',
+                data:data[0]
+            })
+            
+        } catch (error) {
+            res.status(500).send({})
+        }
     }
 
     async addIdentitas({body}, res){
-        const result = await this.screeningModel.addIdentitas(body);
-        
-        if (!result) {
-            return res.status(500).send({
-                code:500,
-                status:'failed'
-            })
-        }
 
-        res.status(200).send({
-            code:200,
-            status:'success'
-        })
+        try {
+            const result = await this.screeningModel.addIdentitas(body);
+        
+            if (!result) {
+                return res.status(500).send({
+                    code:500,
+                    status:'failed'
+                })
+            }
+
+            res.status(200).send({
+                code:200,
+                status:'success'
+            })
+        } catch (error) {
+            res.status(500).send({})
+        }
     }
 
     async deleteIdentitas(req, res){
-        const id = req.query.id
-        const result = await this.screeningModel.deleteIdentitas(id);
-        
-        if (!result) {
-            return res.status(500).send({
-                code:500,
-                status:'failed'
-            })
-        }
 
-        res.status(200).send({
-            code:200,
-            status:'success'
-        })
+        try {
+            const id = req.query.id
+            const result = await this.screeningModel.deleteIdentitas(id);
+            
+            if (!result) {
+                return res.status(500).send({
+                    code:500,
+                    status:'failed'
+                })
+            }
+
+            res.status(200).send({
+                code:200,
+                status:'success'
+            })
+        } catch (error) {
+            res.status(500).send({})
+        }
     }
 
 
