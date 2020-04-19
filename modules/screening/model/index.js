@@ -6,7 +6,7 @@ class ScreeningModel{
     }
 
     async getIdentitas(key){
-        const result = await db.query(`select * from ${this.tbl_name} where no_identitas=${key}`);
+        const result = await db.query(`select * from ${this.tbl_name}`);
         
         return result.rows;
     }    
