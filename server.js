@@ -1,3 +1,4 @@
+const db = require('../../../config/db');
 require('dotenv').config();
 const express = require("express");
 const cors = require("cors");
@@ -13,6 +14,11 @@ app.use(express.urlencoded({extended:false}))
 
 router(app);
 
+app.get('/', (req, res) => {
+    const data = await db.query('Select * from tbl_identitas');
+
+    res.send(data)
+});
 // production
 app.listen(PORT, () => {
     console.log(`server running on port ${PORT}`)
