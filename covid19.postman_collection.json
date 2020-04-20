@@ -1,0 +1,168 @@
+{
+	"info": {
+		"_postman_id": "642bc4ca-0fb2-4142-bf6f-606969f7aaf2",
+		"name": "covid19",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login user",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"hp\": 81221212,\n\t\"password\": \"apam1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://radiant-sierra-49632.herokuapp.com/user/login",
+					"protocol": "https",
+					"host": [
+						"radiant-sierra-49632",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"Akhbar Arianda\",\n\t\"email\": \"akhbar@gmail.com\",\n\t\"hp\":123456,\n\t\"password\":\"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://radiant-sierra-49632.herokuapp.com/user/register",
+					"protocol": "https",
+					"host": [
+						"radiant-sierra-49632",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"user",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insert identitas",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"no_identitas\":1232232, \n\t\"jenis_identitas\":\"ktp\", \n\t\"nama\":\"akbar\", \n\t\"jenis_kelamin\":\"pria\", \n\t\"negara\":\"indonesia\", \n\t\"provinsi\":\"Aceh\", \n\t\"kabupaten\":\"Lhokseumawe\", \n\t\"kecamatan\":\"Muara Satu\", \n\t\"desa\":\"Blang Naleung Mameh\", \n\t\"dusun\":\"Rancong Baroh\", \n\t\"rt_rw\":\"001\",\n\t\"id_screening\":\"SRC_12121212121\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://radiant-sierra-49632.herokuapp.com/screening",
+					"protocol": "https",
+					"host": [
+						"radiant-sierra-49632",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"screening"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get identitas by ktp",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://radiant-sierra-49632.herokuapp.com/screening?id=1231313",
+					"protocol": "https",
+					"host": [
+						"radiant-sierra-49632",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"screening"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1231313"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete identitas",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://radiant-sierra-49632.herokuapp.com/screening?id=1231313",
+					"protocol": "https",
+					"host": [
+						"radiant-sierra-49632",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"screening"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1231313"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
